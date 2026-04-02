@@ -16,7 +16,9 @@ const ProjectCards = () => {
         try {
             const fetchProjects = async () => {
                 const data = await getProjects();
-                setProjects(data);
+                // Extract the 'node' from each item so it matches the Project[] type
+                const formattedProjects = data.map((item: any) => item.node);
+                setProjects(formattedProjects);
                 setIsLoading(false);
             };
             fetchProjects();
@@ -25,9 +27,6 @@ const ProjectCards = () => {
             setIsLoading(false);
         }
     }, []);
-
-    const data = projects?.map((item: any) => item.node);
-
 
     return (
         <AnimationContainer customClassName="w-full flex flex-col">
@@ -45,7 +44,8 @@ const ProjectCards = () => {
                     </>
                 ) : (
                     <>
-                        {data && data?.map((project: ProjectProps) => (
+                        {/* Map directly over the projects state */}
+                        {projects && projects.map((project: ProjectProps) => (
                             <Card key={project.title} project={project} />
                         ))}
                     </>
@@ -56,4 +56,4 @@ const ProjectCards = () => {
     )
 };
 
-export default ProjectCards
+export default ProjectCards;
