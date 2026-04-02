@@ -9,7 +9,7 @@ const Hero = () => {
         <div className="relative flex flex-col-reverse items-center justify-between w-full py-12 lg:py-16 lg:flex-row">
             <AnimationContainer customClassName="flex flex-col items-center justify-between max-w-lg lg:items-start p-0 lg:pr-8">
                 <h3 className="text-sm lg:text-xl text-muted-foreground">
-                    Hey there, I'm{" "}
+                    Hey there, I&apos;m{" "}
                     <span className="text-foreground">👋</span>
                 </h3>
                 <h1 className="py-2 text-xl font-bold text-foreground lg:py-4 sm:text-3xl lg:text-5xl">
