@@ -1,0 +1,90 @@
+import { Project as ProjectProps } from '@/types';
+import { Badge } from '@mantine/core';
+import Link from 'next/link';
+import { SiGithub } from "react-icons/si";
+import { TbExternalLink } from "react-icons/tb";
+import { FaRegFilePdf } from "react-icons/fa6";
+import { Button } from '../ui/Button';
+import AnimationContainer from './AnimationContainer';
+
+interface Props {
+    project: ProjectProps;
+}
+
+const Card = ({ project }: Props) => {
+    return (
+        <AnimationContainer customClassName="bg-card border border-border w-full hover:border-border/80 rounded-xl">
+
+            <div className="flex-col items-start p-4 lg:p-5">
+                <div className="flex flex-col items-start space-y-4">
+                    <h4 className="text-lg font-medium text-foreground">
+                        {project?.title}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                        {project?.description}
+                    </p>
+                    <div className="flex flex-col lg:flex-row items-start justify-start space-y-4 lg:space-y-0 lg:justify-between w-full">
+                        {/* <div className="flex items-center justify-start flex-wrap gap-2">
+                            {project?.stack?.map((item, index) => (
+                                <Badge
+                                    key={index}
+                                    size="sm"
+                                    radius="xs"
+                                    variant="filled"
+                                    color="dark"
+                                    className="transition-colors duration-300 ease-in-out bg-muted hover:bg-muted/80"
+                                >
+                                    <span className="font-medium text-foreground">
+                                        {item}
+                                    </span>
+                                </Badge>
+                            ))}
+                        </div> */}
+                        
+                        <div className="flex items-end gap-4">
+                            {/* Conditionally render Github button only if the link exists */}
+                            {project?.github && (
+                                <Link href={project.github} target="_blank">
+                                    <Button variant="outline" size="sm">
+                                        <SiGithub className="w-5 h-5" />
+                                        <span className="ml-2">
+                                            Github
+                                        </span>
+                                    </Button>
+                                </Link>
+                            )}
+                            
+                            {/* Conditionally render View/PDF button only if the link exists */}
+                            {project?.view && (
+                                <a 
+                                    href={project.view} 
+                                    target="_blank" 
+                                    rel="noreferrer"
+                                    download={project.view.endsWith('.pdf')}
+                                >
+                                    <Button variant="outline" size="sm">
+                                        {project.view.endsWith('.pdf') ? (
+                                            <>
+                                                <FaRegFilePdf className="w-5 h-5 text-red-500" />
+                                                <span className="ml-2">PDF Report</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <TbExternalLink className="w-5 h-5" />
+                                                <span className="ml-2">View</span>
+                                            </>
+                                        )}
+                                    </Button>
+                                </a>
+                            )}
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </AnimationContainer>
+    )
+};
+
+export default Card;
