@@ -7,18 +7,8 @@ import { IoBook, IoBriefcase, IoBrowsers, IoDocumentText, IoMail, IoPerson } fro
 import { Button } from './ui/Button';
 import MotionButton from './ui/MotionButton';
 import AnimationContainer from './utils/AnimationContainer';
-import ResumeDropdown from './ui/ResumeDropdown'; // Adjust import path
 
 const Footer = () => {
-
-    const handleDownload = () => {
-        const link = document.createElement('a');
-        link.href = '/arham-resume.pdf';
-        link.download = 'arham-resume.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
 
     return (
         <footer className="flex flex-col items-center justify-center w-full mx-auto lg:max-w-screen-md">
@@ -27,8 +17,8 @@ const Footer = () => {
 
             <AnimationContainer customClassName="w-full grid grid-cols-3 place-items-center gap-2 lg:gap-4 mx-4 py-12 lg:py-8">
 
+                {/* Column 1: Main Pages */}
                 <div className="flex flex-col space-y-4">
-
                     <MotionButton href="/" delay={0}>
                         <Button variant="ghost" size="sm" className="font-normal transition ease-out text-muted-foreground hover:text-foreground">
                             <GoHomeFill className="inline-block w-5 h-5 mr-2" />
@@ -49,35 +39,34 @@ const Footer = () => {
                             Projects
                         </Button>
                     </MotionButton>
-
                 </div>
 
+                {/* Column 2: Resume Links & Contact */}
                 <div className="flex flex-col space-y-4">
-
-                    <MotionButton href="/nootes" delay={0}>
+                    <MotionButton href="/resumes/tech-resume.pdf" target="_blank" delay={1}>
                         <Button variant="ghost" size="sm" className="font-normal transition ease-out text-muted-foreground hover:text-foreground">
-                            <IoBook className="inline-block w-5 h-5 mr-2" />
-                            Blog
+                            <IoDocumentText className="inline-block w-5 h-5 mr-2" />
+                            Tech Resume
                         </Button>
                     </MotionButton>
 
-                    <MotionButton href="/contact" delay={0.5}>
+                    <MotionButton href="/contact" delay={1}>
                         <Button variant="ghost" size="sm" className="font-normal transition ease-out text-muted-foreground hover:text-foreground">
                             <IoMail className="inline-block w-5 h-5 mr-2" />
                             Contact
                         </Button>
                     </MotionButton>
 
-                    <MotionButton href="/notes" delay={1}>
+                    <MotionButton href="/resumes/product-resume.pdf" target="_blank" delay={1}>
                         <Button variant="ghost" size="sm" className="font-normal transition ease-out text-muted-foreground hover:text-foreground">
-                            <HiMiniDocumentText className="inline-block w-5 h-5 mr-2" />
-                            Notes
+                            <IoDocumentText className="inline-block w-5 h-5 mr-2" />
+                            Product Resume
                         </Button>
                     </MotionButton>
                 </div>
 
+                {/* Column 3: Socials & Master CV */}
                 <div className="flex flex-col h-full space-y-4">
-
                     <MotionButton href="https://github.com/retrostyler" target="_blank" delay={0}>
                         <Button variant="ghost" size="sm" className="font-normal transition ease-out text-muted-foreground hover:text-foreground">
                             <FaGithub className="inline-block w-5 h-5 mr-2" />
@@ -92,13 +81,13 @@ const Footer = () => {
                         </Button>
                     </MotionButton>
 
-                    <MotionButton href="#" delay={1} target="_blank" download>
-                        <Button variant="ghost" size="sm" className="font-normal transition ease-out text-muted-foreground hover:text-foreground" onClick={handleDownload}>
+                    {/* Added target="_blank" to open in a new tab instead of forcing a download script */}
+                    <MotionButton href="/resumes/master-cv.pdf" target="_blank" delay={1}>
+                        <Button variant="ghost" size="sm" className="font-normal transition ease-out text-muted-foreground hover:text-foreground">
                             <IoDocumentText className="inline-block w-5 h-5 mr-2" />
-                            My CV
+                            Complete CV
                         </Button>
                     </MotionButton>
-
                 </div>
 
             </AnimationContainer>
@@ -107,4 +96,4 @@ const Footer = () => {
     )
 };
 
-export default Footer
+export default Footer;

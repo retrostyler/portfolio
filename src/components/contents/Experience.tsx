@@ -5,7 +5,36 @@ const Experience = () => {
     return (
         <TimeLine>
             
-            
+            <TimeLineItem active>
+                <TimeLineItem.Title>
+                    <span className="font-medium transition-all hover:text-foreground hover:underline hover:underline-offset-2 text-emerald-600">
+                       Product Engineer at ThriftX 
+                    </span>
+                    {" "}•{" "}
+                    <span className="text-muted-foreground">
+                        Dec 2024 - Present
+                    </span>
+                </TimeLineItem.Title>
+                <TimeLineItem.Description>
+                    • Architected and developed a full-stack multi-vendor e-commerce marketplace from the ground up using Next.js and Firebase.
+                </TimeLineItem.Description>
+                <TimeLineItem.Description>
+                    • Designed the core product workflows, including vendor onboarding, inventory management, and a dynamic coupon/pricing engine.
+                </TimeLineItem.Description>
+                <TimeLineItem.Description>
+                    • Engineered custom Admin and Vendor dashboards to streamline order tracking, utilizing Google Sign-In and Mobile OTP for secure access.
+                </TimeLineItem.Description>
+                <TimeLineItem.Description>
+                    • Integrated third-party logistics (FShip/Shiprocket) directly into the checkout flow for automated AWB generation and order fulfillment.
+                </TimeLineItem.Description>
+                <TimeLineItem.Description>
+                    • Managed a team of engineering interns by establishing GitHub branching strategies, PR workflows, and code review standards.
+                </TimeLineItem.Description>
+                <TimeLineItem.Description>
+                    • Optimized frontend performance and user experience by implementing WebP image compression pipelines and configuring secure Firebase IAM staging environments.
+                </TimeLineItem.Description>
+            </TimeLineItem>
+
             <TimeLineItem>
                 <TimeLineItem.Title>
                     <span className="font-medium transition-all hover:text-foreground hover:underline hover:underline-offset-2 text-emerald-600">

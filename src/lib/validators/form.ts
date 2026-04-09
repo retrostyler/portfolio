@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const phoneRegExp = /^\d{10}$/
+const phoneRegExp = /^\d+$/
 
 export const FormValidator = z.object({
     name: z.string()
@@ -8,7 +8,7 @@ export const FormValidator = z.object({
         .max(50, { message: 'Name must be at most 50 characters long' }),
     email: z.string().email({ message: 'Invalid email address' }),
     phone: z.string()
-        .refine(value => phoneRegExp.test(value), {
+        .refine(value => !value || phoneRegExp.test(value), {
             message: 'Invalid phone number',
         }),
     message: z.string()

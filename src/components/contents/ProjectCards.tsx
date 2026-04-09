@@ -17,7 +17,12 @@ const ProjectCards = () => {
             const fetchProjects = async () => {
                 const data = await getProjects();
                 // Extract the 'node' from each item so it matches the Project[] type
-                const formattedProjects = data.map((item: any) => item.node);
+                const formattedProjects = data.map((item: any) => ({
+                    ...item.node,
+                    // ✅ Safe fallbacks — prevents <Link href={undefined}> crash
+                    github: item.node.github || "",
+                    view: item.node.view || "",
+                }));
                 setProjects(formattedProjects);
                 setIsLoading(false);
             };
