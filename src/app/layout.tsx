@@ -99,12 +99,12 @@ export const metadata: Metadata = {
   },
 
   // ─── Add your verification codes here after signing up ───
-  // verification: {
-  //   google: "paste-google-search-console-code-here",
-  //   other: {
-  //     "msvalidate.01": "paste-bing-webmaster-code-here",
-  //   },
-  // },
+  verification: {
+    google: "Tm36paExMXVElKxDeMiZX0T3ixEnV_0_LtDMCyZzkk0",
+    other: {
+      "msvalidate.01": "4B81D720F7F1FA0A2E17818C4CB38796",
+    },
+  },
 };
 
 // ─────────────────────────────────────────────
