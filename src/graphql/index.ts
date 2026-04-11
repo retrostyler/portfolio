@@ -85,7 +85,7 @@ export const getProjects = async () => {
       node: {
         id: "5",
         title: "Arangam — Artisan Marketplace",
-        view: "/reports/arangam.pdf",
+        view: "/reports/Arangam.pdf",
         stack: "Next.js, Supabase, Resend, Tailwind CSS, Vercel",
         createdAt: "2025-01-01T00:00:00.000Z",
         publishedAt: "2025-01-01T00:00:00.000Z",
